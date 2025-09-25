@@ -1,6 +1,12 @@
 import axios from "axios";
 
-const API_BASE = "http://localhost:7000";
+// const API_BASE = "http://localhost:7000";
+
+const API_BASE =
+  typeof window !== "undefined" &&
+  window.location.hostname.includes("localhost")
+    ? "http://localhost:7000"
+    : "https://kanban-app-tx81.onrender.com";
 
 const api = axios.create({
   baseURL: API_BASE,
